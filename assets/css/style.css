@@ -10,26 +10,52 @@
 
 body {
 	/*background: url(../images/space.jpg) no-repeat left center fixed;*/
-	overflow: hidden;
+	/*overflow: hidden;*/
+	color: #0b3d91;
 	background-color: #dee5f0;
 	font-family: 'Source Sans Pro', sans-serif;
+}
+
+button {
+	background: none;
+	border: none;
+	font-family: 'Source Sans Pro', sans-serif;
+	color: #0b3d91;
 }
 
 h2 {
 	font-family: 'Merriweather', serif;
 }
 
+
 .nasa{
 	font-family: 'Nasalization Rg';
 }
 
-.question{
-	visibility: hidden;
+#heading {
+	font-size: 55px;
+    margin: 50px 275px;
 }
 
-/*#quiz {
+#quiz {
 	width: 600px;
     height: 524px;
-	background-color: #FC3D21;
-	margin: 100px 275px
-}*/
+    border: solid 10px #FC3D21;
+    border-radius: 55px;
+    background-color: #ffffff;
+    margin: 0px 230px;
+}
+
+#startBtn {
+	background-color: #0b3d91;
+	color: #fff;
+	border: solid 2px #0b3d91;
+	border-radius: 10px; 
+	font-size: 55px;
+    margin: 220px 200px;
+    width: 200px;
+}
+
+#qHolder {
+	margin: -410px 40px
+}
