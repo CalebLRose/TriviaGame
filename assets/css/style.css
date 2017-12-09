@@ -1,3 +1,35 @@
+@font-face {
+    font-family: 'Nasalization Rg';
+    src: url('../font/nasaFont/NasalizationRg-Regular.eot');
+    src: url('../font/nasaFont/NasalizationRg-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../font/nasaFont/NasalizationRg-Regular.woff') format('woff'),
+        url('../font/nasaFont/NasalizationRg-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+	/*background: url(../images/space.jpg) no-repeat left center fixed;*/
+	overflow: hidden;
+	background-color: #dee5f0;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+h2 {
+	font-family: 'Merriweather', serif;
+}
+
+.nasa{
+	font-family: 'Nasalization Rg';
+}
+
 .question{
 	visibility: hidden;
 }
+
+/*#quiz {
+	width: 600px;
+    height: 524px;
+	background-color: #FC3D21;
+	margin: 100px 275px
+}*/
