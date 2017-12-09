@@ -78,6 +78,8 @@ $(document).ready(function() {
 	var quesArray = [q1, q2, q3, q4, q5, q6, q7, q8];
 	console.log("ques array: "+quesArray);
 	var count = 0;
+	var timer=30;
+	var begin;
 
 	function displayQuestion(){
 		$("#question").html(quesArray[count].question);
@@ -87,24 +89,28 @@ $(document).ready(function() {
 		$("#btn4").text(quesArray[count].possibleAnswers[3]);
 	};
 
-	function game(){
-		for (i=0;i<quesArray.length;i++){
-			setTimeout(displayQuestion(), 1000);
+	function nextQuestion(){
+		setTimeout(displayQuestion, 3000);
+		$("#timer").text("")
 		count++;
+		if (count = quesArray.length){
+			startGame();
+		};
 	};
-		
+
+
+	function startGame(){
+		begin = setInterval(nextQuestion,3000);
+		$("#startBtn").css("visibility","hidden");
+		console.log(quesArray[count]);
 	};
+
 // show one question at a time. each question has an independant timer
 		
 		
 	// 
 
-	$("#startBtn").on("click",function(){
-		$("#startBtn").css("visibility","hidden");
-		game();
-		console.log(quesArray[count]);
-	});
-
+	$("#startBtn").on("click",startGame);
 
 // when user chooses an answer or when timer runs out show the correct answer 
 // and let user know if timer ran out or if answer was correct or incorrect.
