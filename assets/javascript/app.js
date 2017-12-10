@@ -111,7 +111,7 @@ $(document).ready(function() {
 		$("#btn4").text(quesArray[count].possibleAnswers[3]);
 	};
 
-	$(document).on("click", "button.choice", function(){
+	$(document).on("click", "button.hover", function(){
 		var pick = $(this).text();
 		$("#question").css("display","none");
 		$("#timer").css("display","none");
