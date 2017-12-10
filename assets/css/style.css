@@ -57,7 +57,22 @@ h2 {
 }
 
 #qHolder {
-	margin: -410px 40px
+	margin: 30px 40px
+}
+
+#timer{
+	visibility: hidden;
+	margin: 40px 220px;
+	font-size: 24px;
+}
+
+#question{
+	font-size: 32px;
+}
+
+.choice{
+	display: block;
+	font-size: 24px;
 }
 
 #results {

@@ -1,7 +1,7 @@
 $(document).ready(function() {
 // start button begins the game
 	var q1 = {
-		question : "Founded in 1958 in response to the Sputnik Crisis and officially launching the space race, what does the acronym NASA stand for?",
+		question : "Founded in 1958 in response to the Sputnik Crisis, what does the acronym NASA stand for?",
 		possibleAnswers : [
 			"A. Naturalist Administration of Strange Activity",
 			"B. Nautical Administration for Space Admiration",
@@ -10,7 +10,7 @@ $(document).ready(function() {
 		answer : "C. National Aeronautics and Space Administration"
 	};
 	var q2 = {
-		question : "Alan Shepard, the first American in space, and John Glenn, the first American in Orbit, were both part of which early NASA program?",
+		question : "Alan Shepard, first American in space, and John Glenn, first American in orbit, were both part of which early NASA program?",
 		possibleAnswers : [
 			"A. Project Jupiter",
 			"B. Project Mercury",
@@ -19,7 +19,7 @@ $(document).ready(function() {
 		answer : 'B. Project Mercury'
 	};
 	var q3 = {
-		question : "Which NASA building is so large it houses one of the world's largest air conditioning systems to stop rain clouds from forming at it's roof?",
+		question : "Which NASA building is so large it needs massive air conditioning systems to stop rain clouds from forming at it's roof?",
 		possibleAnswers : [
 			"A. Johnson Space Center",
 			"B. Ames Research Center",
@@ -28,7 +28,7 @@ $(document).ready(function() {
 		answer : "C. The Vehicle Assembly Building"
 	};
 	var q4 = {
-		question : "A big part of NASA is scientific research. In a recent study NASA was paying people to stay in bed in order to study the effects of what?",
+		question : "In a recent study NASA was paying people to stay in bed in order to study the effects of what?",
 		possibleAnswers : [
 			"A. Prolonged Weightlessness",
 			"B. Gravity Sickness",
@@ -37,7 +37,7 @@ $(document).ready(function() {
 		answer : "A. Prolonged Weightlessness"
 	};
 	var q5 = {
-		question : "Neil Armstrong and Buzz Aldrin's names are well known to most in the United States as the first men on the Moon. Who was the third member of the Apollo 11 mission?",
+		question : "Neil Armstrong and Buzz Aldrin are household names. Who was the third member of the Apollo 11 mission?",
 		possibleAnswers : [
 			"A. William A. Anders",
 			"B. Michael Collins",
@@ -46,7 +46,7 @@ $(document).ready(function() {
 		answer : "B. Michael Collins"
 	};
 	var q6 = {
-		question : "Yes, the smartphone in your pocket has more computing power than the Apollo Guidance Computer, but it was no slouch? Which prestigious university designed the system that put Man on The Moon?",
+		question : "Which prestigious university designed the the Apollo Guidance Computer, which helped NASA get Man to The Moon?",
 		possibleAnswers : [
 			"A. Brown University",
 			"B. California Institute of Technology",
@@ -55,16 +55,16 @@ $(document).ready(function() {
 		answer : "C. Massachusetts Institute of Technology"
 	};
 	var q7 = {
-		question : "Which two countries were not memebers of the 1998 International Space Station Agreements that included the United States, Russia, Japan, Canada and European Space Agency?",
+		question : "Which two countries were not memebers of the 1998 International Space Station Agreements?",
 		possibleAnswers : [
-			"A. Israel and Spain",
+			"A. United States and Spain",
 			"B. Switzerland and Egypt",
 			"C. France and South Korea",
 			"D. Austria and Portugal"],
 		answer : "D. Austria and Portugal"
 	};
 	var q8 = {
-		question : "Some people still believe NASA's Moon landing was faked. Which author and director made a movie so real for its time that some belive they were in on the ruse?",
+		question : "Which author and director made a movie so real for its time that some belive they help fake The Moon landing?",
 		possibleAnswers : [
 			"A. Phillip K. Dick and Ridley Scott",
 			"B. Robert Heinlein and Paul Verhoeven",
@@ -78,7 +78,7 @@ $(document).ready(function() {
 	var quesArray = [q1, q2, q3, q4, q5, q6, q7, q8];
 	console.log("ques array: "+quesArray);
 	var count = 0;
-	var timer = 30;
+	var timer = 29;
 	var questionTimer;
 	function countdown(){
 		if (timer == 0){
@@ -87,38 +87,42 @@ $(document).ready(function() {
 		} else {
 			$("#timer").text("Time Left: "+timer);
 			timer--;
-		}
+		};
 	};
 	function displayQuestion(){
+		$("#timer").css("visibility","visible");
 		questionTimer = setInterval(countdown, 1000);
 		$("#question").text(quesArray[count].question);
 		$("#btn1").text(quesArray[count].possibleAnswers[0]);
 		$("#btn2").text(quesArray[count].possibleAnswers[1]);
 		$("#btn3").text(quesArray[count].possibleAnswers[2]);
 		$("#btn4").text(quesArray[count].possibleAnswers[3]);
-
-		// count++;
-		// console.log(count);
-		// questionTimer();
-		// console.log("timer: "+questionTimer);
-		// if (count >= quesArray.length){
-		// 	clearInterval(nextQuestion);
-		// 	results();
-		// };
 	};
 
+	$(document).on("click", "button.choice", function(){
+		var pick = $(this).text();
+		$("#timer").css("visibility","hidden");
+		$("#option").css("visibility","hidden");
+		console.log("i clicked: "+pick);
+		console.log(quesArray[count].answer);
+		if (pick != quesArray[count].answer){
+				$("#question").text("That is incorrect. Going to have to cancel the mission if you keep answering like this.");
+		} else {
+			$("#question").text("Now we're cooking with rocket fuel. That is correct!");
+		};
+	});
+
 	function nextQuestion(){
-		count++;
 		timer = 30;
+		count++;
 		console.log("count: "+count);
 		displayQuestion();
-		// displayQuestion(setInterval,30000);
 	};
 
 
 	function startGame(){
 		displayQuestion();
-		$("#startBtn").css("visibility","hidden");
+		$("#startBtn").css("display","none");
 		console.log(quesArray[count]);
 	};
 
