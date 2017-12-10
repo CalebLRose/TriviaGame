@@ -87,6 +87,7 @@ $(document).ready(function() {
 			clearInterval(questionTimer);
 			$("#timer").css("display","none");
 			$("#option").css("display","none");
+			$("#question").css("display","none");
 			$("#response").css("display","block");
 			$("#response").text("Oh! Missed that comet.");
 			setTimeout(function(){
@@ -121,7 +122,7 @@ $(document).ready(function() {
 		if (pick != quesArray[count].answer){
 			incorrect++;
 			$("#response").css("display","block");
-			$("#response").text("That is incorrect. Going to have to cancel the mission if you keep answering like this.");
+			$("#response").text("Going to have to cancel the mission if you keep answering like this. That is incorrect.");
 		} else {
 			correct++;
 			$("#response").css("display","block");

@@ -9,7 +9,7 @@
 }
 
 body {
-	/*background: url(../images/space.jpg) no-repeat left center fixed;*/
+	background: url(../images/space2.jpg) no-repeat center center fixed;
 	/*overflow: hidden;*/
 	color: #0b3d91;
 	background-color: #dee5f0;
@@ -23,32 +23,30 @@ button {
 	color: #0b3d91;
 }
 
-h2 {
-	font-family: 'Merriweather', serif;
-}
-
-
 .nasa{
 	font-family: 'Nasalization Rg';
 }
 
 #heading {
+	color: #f6d8a7;
 	font-size: 55px;
     margin: 50px 275px;
+	text-shadow:0 10px 15px #FC3D21;
 }
 
 #quiz {
 	width: 600px;
     height: 524px;
-    border: solid 10px #FC3D21;
+    border: solid 15px #FC3D21;
     border-radius: 55px;
-    background-color: #ffffff;
-    margin: 0px 230px;
+    background-color: #f6d8a7ba;
+    /*box-shadow: 0 10px 15px #FC3D21;*/
+    margin: 0px 215px;
 }
 
 #startBtn {
 	background-color: #0b3d91;
-	color: #fff;
+	color: #f6d8a7;
 	border: solid 2px #0b3d91;
 	border-radius: 10px; 
 	font-size: 55px;
@@ -61,20 +59,49 @@ h2 {
 }
 
 #timer{
-	display: block;
-	margin: 40px 220px;
+	display: none;
+	margin: 40px 230px;
 	font-size: 24px;
 }
 
-#question{
-	font-size: 32px;
+.main{
+	font-size: 26px;
+	font-family: 'Merriweather', serif;
+	text-align: center;
+	line-height: 34px;
+}
+
+#option{
+	margin-top: 30px;
 }
 
 .choice{
 	display: block;
-	font-size: 24px;
+    margin: 20px 0px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.hover:hover{
+	background-color: #0b3d91;
+	color: #f6d8a7;
+	border: solid 2px #0b3d91;
+	border-radius: 10px; 
+}
+
+.alt{
+	margin: 180px 65px;
+    width: 460px;
 }
 
 #results {
 	display: none;
+}
+
+#restart{
+	background-color: #0b3d91;
+	color: #f6d8a7;
+	border: solid 2px #0b3d91;
+	border-radius: 10px;
+	margin: 100px 160px;
 }
