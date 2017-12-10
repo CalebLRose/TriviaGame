@@ -78,32 +78,57 @@ $(document).ready(function() {
 	var quesArray = [q1, q2, q3, q4, q5, q6, q7, q8];
 	console.log("ques array: "+quesArray);
 	var count = 0;
-	var timer=30;
-	var begin;
-
+	var timer = 30;
+	var questionTimer;
+	function countdown(){
+		if (timer == 0){
+			clearInterval(questionTimer);
+			nextQuestion();
+		} else {
+			$("#timer").text("Time Left: "+timer);
+			timer--;
+		}
+	};
 	function displayQuestion(){
-		$("#question").html(quesArray[count].question);
+		questionTimer = setInterval(countdown, 1000);
+		$("#question").text(quesArray[count].question);
 		$("#btn1").text(quesArray[count].possibleAnswers[0]);
 		$("#btn2").text(quesArray[count].possibleAnswers[1]);
 		$("#btn3").text(quesArray[count].possibleAnswers[2]);
 		$("#btn4").text(quesArray[count].possibleAnswers[3]);
+
+		// count++;
+		// console.log(count);
+		// questionTimer();
+		// console.log("timer: "+questionTimer);
+		// if (count >= quesArray.length){
+		// 	clearInterval(nextQuestion);
+		// 	results();
+		// };
 	};
 
 	function nextQuestion(){
-		setTimeout(displayQuestion, 3000);
-		$("#timer").text("")
 		count++;
-		if (count = quesArray.length){
-			startGame();
-		};
+		timer = 30;
+		console.log("count: "+count);
+		displayQuestion();
+		// displayQuestion(setInterval,30000);
 	};
 
 
 	function startGame(){
-		begin = setInterval(nextQuestion,3000);
+		displayQuestion();
 		$("#startBtn").css("visibility","hidden");
 		console.log(quesArray[count]);
 	};
+
+	// function results(){
+	// 	clearInterval(nextQuestion);
+	// 	$("#results").css("visibility","visible");
+	// 	$("#correct").text("Correct Answers: "+correct);
+	// 	$("#incorrect").text("Inorrect Answers: "+incorrect);
+	// 	$("#unanswered").text("Unanswered: "+unanswered);
+	// }
 
 // show one question at a time. each question has an independant timer
 		
