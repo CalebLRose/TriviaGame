@@ -80,19 +80,30 @@ $(document).ready(function() {
 	var count = 0;
 	var timer = 29;
 	var questionTimer;
+	clearInterval(questionTimer);
 	function countdown(){
 		if (timer == 0){
+			unanswered++;
 			clearInterval(questionTimer);
-			nextQuestion();
+			$("#timer").css("display","none");
+			$("#option").css("display","none");
+			$("#response").css("display","block");
+			$("#response").text("Oh! Missed that comet.");
+			setTimeout(function(){
+			nextQuestion();	
+			},7000);
 		} else {
 			$("#timer").text("Time Left: "+timer);
 			timer--;
 		};
 	};
 	function displayQuestion(){
-		$("#timer").css("visibility","visible");
+		$("#question").css("display","block");
+		$("#timer").css("display","block");
+		$("#option").css("display","block");
 		questionTimer = setInterval(countdown, 1000);
 		$("#question").text(quesArray[count].question);
+		console.log(quesArray[count].question);
 		$("#btn1").text(quesArray[count].possibleAnswers[0]);
 		$("#btn2").text(quesArray[count].possibleAnswers[1]);
 		$("#btn3").text(quesArray[count].possibleAnswers[2]);
@@ -101,38 +112,69 @@ $(document).ready(function() {
 
 	$(document).on("click", "button.choice", function(){
 		var pick = $(this).text();
-		$("#timer").css("visibility","hidden");
-		$("#option").css("visibility","hidden");
+		$("#question").css("display","none");
+		$("#timer").css("display","none");
+		$("#option").css("display","none");
 		console.log("i clicked: "+pick);
 		console.log(quesArray[count].answer);
+		clearInterval(questionTimer);
 		if (pick != quesArray[count].answer){
-				$("#question").text("That is incorrect. Going to have to cancel the mission if you keep answering like this.");
+			incorrect++;
+			$("#response").css("display","block");
+			$("#response").text("That is incorrect. Going to have to cancel the mission if you keep answering like this.");
 		} else {
-			$("#question").text("Now we're cooking with rocket fuel. That is correct!");
+			correct++;
+			$("#response").css("display","block");
+			$("#response").text("Now we're cooking with rocket fuel. That is correct!");
 		};
+		setTimeout(function(){
+		nextQuestion();	
+		},7000);
+		
 	});
 
 	function nextQuestion(){
 		timer = 30;
 		count++;
 		console.log("count: "+count);
-		displayQuestion();
+		$("#response").css("display","none");
+		if(count === quesArray.length){
+			results();
+		} else {
+			displayQuestion();
+		}
 	};
 
-
 	function startGame(){
+		$("#results").css("display","none");
 		displayQuestion();
 		$("#startBtn").css("display","none");
+		$("#question").css("display","block");
 		console.log(quesArray[count]);
 	};
 
-	// function results(){
-	// 	clearInterval(nextQuestion);
-	// 	$("#results").css("visibility","visible");
-	// 	$("#correct").text("Correct Answers: "+correct);
-	// 	$("#incorrect").text("Inorrect Answers: "+incorrect);
-	// 	$("#unanswered").text("Unanswered: "+unanswered);
-	// }
+	function results(){
+		clearInterval(questionTimer);
+		$("#question").css("display","none");
+		$("#results").css("display","block");
+		$("#correct").text("Correct Answers: "+correct);
+		$("#incorrect").text("Inorrect Answers: "+incorrect);
+		$("#unanswered").text("Unanswered: "+unanswered);
+		$("#restart").text("Try again?");
+		$("#restart").on("click",function(){
+			count = 0;
+			timer = 30;
+			correct = 0;
+			incorrect = 0;
+			unanswered = 0;
+			console.log(count);
+			console.log(timer);
+			console.log(correct);
+			console.log(incorrect);
+			console.log(unanswered);
+			startGame();
+		});
+	}
 
 // show one question at a time. each question has an independant timer
 		

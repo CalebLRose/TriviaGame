@@ -61,7 +61,7 @@ h2 {
 }
 
 #timer{
-	visibility: hidden;
+	display: block;
 	margin: 40px 220px;
 	font-size: 24px;
 }
@@ -76,5 +76,5 @@ h2 {
 }
 
 #results {
-	visibility: hidden;
+	display: none;
 }
