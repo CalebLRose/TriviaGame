@@ -1,7 +1,7 @@
 $(document).ready(function() {
 // start button begins the game
 	var q1 = {
-		question : "Founded in 1958 in response to the Sputnik Crisis, what does the acronym NASA stand for?",
+		question : "Founded in 1958, in response to the Sputnik Crisis, what does the acronym NASA stand for?",
 		possibleAnswers : [
 			"A. Naturalist Administration of Strange Activity",
 			"B. Nautical Administration for Space Admiration",
@@ -46,7 +46,7 @@ $(document).ready(function() {
 		answer : "B. Michael Collins"
 	};
 	var q6 = {
-		question : "Which prestigious university designed the the Apollo Guidance Computer, which helped NASA get Man to The Moon?",
+		question : "Which prestigious university designed the the Apollo Guidance Computer, which helped NASA get to The Moon?",
 		possibleAnswers : [
 			"A. Brown University",
 			"B. California Institute of Technology",
@@ -55,7 +55,7 @@ $(document).ready(function() {
 		answer : "C. Massachusetts Institute of Technology"
 	};
 	var q7 = {
-		question : "Which two countries were not memebers of the 1998 International Space Station Agreements?",
+		question : "Which two countries were not members of the 1998 International Space Station Agreements?",
 		possibleAnswers : [
 			"A. United States and Spain",
 			"B. Switzerland and Egypt",
@@ -64,7 +64,7 @@ $(document).ready(function() {
 		answer : "D. Austria and Portugal"
 	};
 	var q8 = {
-		question : "Which author and director made a movie so real for its time that some belive they help fake The Moon landing?",
+		question : "Which author and director made a movie so real for its time that some believe they helped fake The Moon landing?",
 		possibleAnswers : [
 			"A. Phillip K. Dick and Ridley Scott",
 			"B. Robert Heinlein and Paul Verhoeven",
